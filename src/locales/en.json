@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "title": "ZAYTUN MOLIYA | Premium Corporate Finance Advisory",
+    "description": "ZAYTUN MOLIYA is a premium one-page corporate website concept for financing strategy, treasury discipline, and decision-ready growth planning."
+  },
+  "common": {
+    "brand": "ZAYTUN MOLIYA",
+    "brandShort": "ZM",
+    "languages": {
+      "en": "EN",
+      "ru": "RU",
+      "uz": "UZ"
+    }
+  },
+  "accessibility": {
+    "skipToContent": "Skip to content",
+    "header": {
+      "toggleMenu": "Toggle navigation menu"
+    },
+    "carousel": {
+      "goToSlide": "Go to slide {index}",
+      "next": "Next highlight",
+      "previous": "Previous highlight",
+      "region": "Company highlights carousel",
+      "role": "carousel",
+      "slideStatus": "Slide {current} of {total}"
+    }
+  },
+  "header": {
+    "tagline": "Corporate finance designed with clarity",
+    "localeOptionAria": "Switch language to {locale}",
+    "cta": "Book a strategy call",
+    "nav": {
+      "services": "Services",
+      "why-us": "Why us",
+      "about": "About",
+      "highlights": "Highlights",
+      "cta": "Contact"
+    }
+  },
+  "hero": {
+    "eyebrow": "Premium finance architecture for ambitious companies",
+    "titleLine1": "Structure capital",
+    "titleLine2": "with confidence",
+    "subtitle": "We help founders, executives, and finance teams shape funding strategy, liquidity rhythm, and governance-ready decisions that hold up under pressure.",
+    "primaryCta": "Start a consultation",
+    "secondaryCta": "See our capabilities",
+    "quoteLabel": "Operating principle",
+    "quote": "Every recommendation should sharpen pace, protect downside, and improve executive conviction.",
+    "panelStatus": "Live mandate",
+    "metrics": {
+      "response": {
+        "value": "48h",
+        "label": "Initial strategic response with a focused path forward"
+      },
+      "discipline": {
+        "value": "3-lane",
+        "label": "Decision framework covering capital, liquidity, and execution discipline"
+      },
+      "visibility": {
+        "value": "360°",
+        "label": "Board-ready view across runway, exposure, and timing"
+      }
+    },
+    "panel": {
+      "badge": "Capital strategy room",
+      "title": "From financing opportunity to decision-ready execution",
+      "items": [
+        {
+          "title": "Signal the priority",
+          "description": "Clarify what matters first: runway extension, balance sheet resilience, or expansion capacity."
+        },
+        {
+          "title": "Shape the structure",
+          "description": "Align instruments, repayment logic, and operational flexibility to the business rhythm."
+        },
+        {
+          "title": "Activate leadership",
+          "description": "Translate strategy into a board-facing narrative and a practical action sequence."
+        }
+      ]
+    }
+  },
+  "services": {
+    "eyebrow": "Capabilities",
+    "title": "A premium advisory layer for capital, growth, and control",
+    "description": "Our service mix is designed for leadership teams that need financing decisions to feel calm, defensible, and implementation-ready.",
+    "cards": {
+      "structuring": {
+        "title": "Financing structure design",
+        "description": "We evaluate debt, partnership, and blended-capital options to build structures that fit timing, cost, and flexibility goals.",
+        "detail": "Best for major funding rounds, refinancing moments, or strategic capital deployment."
+      },
+      "treasury": {
+        "title": "Liquidity and treasury rhythm",
+        "description": "We translate cash flow pressure into a disciplined cadence for working capital, obligations, and management visibility.",
+        "detail": "Built for companies that need tighter cash discipline without slowing the business."
+      },
+      "growth": {
+        "title": "Growth scenario planning",
+        "description": "We model expansion choices, downside cases, and trigger points so leadership can move with sharper conviction.",
+        "detail": "Useful ahead of expansion, new market entry, or operating model changes."
+      },
+      "governance": {
+        "title": "Governance-ready reporting",
+        "description": "We frame numbers, risks, and options into concise executive reporting that supports boards, investors, and internal alignment.",
+        "detail": "Ideal when leadership needs better decision quality, not just more reporting volume."
+      }
+    }
+  },
+  "whyUs": {
+    "eyebrow": "Why ZAYTUN MOLIYA",
+    "title": "Built for leaders who value calm decisions and sharp execution",
+    "description": "The site is positioned around a premium advisory mindset: fewer distractions, stronger structure, and visibly higher decision quality.",
+    "items": {
+      "clarity": {
+        "title": "Clarity before complexity",
+        "description": "We reduce noise fast, define what truly matters, and create a clean path before adding analytical depth."
+      },
+      "pace": {
+        "title": "Speed with discipline",
+        "description": "Fast movement only matters when the structure is sound. We keep momentum without compromising quality."
+      },
+      "confidence": {
+        "title": "Confidence at stakeholder level",
+        "description": "Outputs are shaped for executives, boards, lenders, and partners who need decisions that stand up to scrutiny."
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "A corporate finance partner designed for modern leadership teams",
+    "description": "ZAYTUN MOLIYA is framed as a premium advisory brand for companies that want financing and planning work to look as composed as the businesses they are building.",
+    "statementLabel": "Brand point of view",
+    "statement": "High-stakes finance should feel deliberate, not noisy. The interface and copy are shaped around that standard.",
+    "cards": {
+      "mission": {
+        "title": "Mission",
+        "description": "Help decision-makers approach capital, liquidity, and growth choices with stronger structure and less friction."
+      },
+      "approach": {
+        "title": "Approach",
+        "description": "Combine elegant communication, practical modelling, and implementation-focused thinking in one advisory layer."
+      },
+      "partnership": {
+        "title": "Partnership style",
+        "description": "Work closely with management teams, preserve executive pace, and deliver outputs that feel ready for real conversations."
+      }
+    }
+  },
+  "highlights": {
+    "eyebrow": "Highlights",
+    "title": "A premium carousel focused on outcomes, not decoration",
+    "description": "The slider communicates core strengths through layered content, measured motion, and a more editorial presentation rhythm.",
+    "label": "Selected focus areas",
+    "slides": {
+      "capital": {
+        "category": "Capital planning",
+        "title": "Sharper structures for ambitious funding moments",
+        "body": "Position debt, partner capital, and execution sequence around what the company actually needs next, not what the market offers first.",
+        "points": [
+          "Debt and blended capital paths",
+          "Repayment logic mapped to cash reality",
+          "Narrative aligned for lenders and partners"
+        ],
+        "statLabel": "Strategic lens",
+        "statValue": "1 brief",
+        "detail": "A single executive-ready brief can align teams around risk, timeline, and next steps with far less friction.",
+        "cta": "Discuss a financing roadmap"
+      },
+      "liquidity": {
+        "category": "Treasury discipline",
+        "title": "Liquidity visibility that helps teams move earlier",
+        "body": "Build a calmer view across obligations, runway, and pressure points so management can react ahead of strain rather than after it.",
+        "points": [
+          "Cash rhythm mapped by operating cycle",
+          "Stress points identified before escalation",
+          "Leadership visibility tightened across functions"
+        ],
+        "statLabel": "Working window",
+        "statValue": "90 days",
+        "detail": "Designing the next 90 days with discipline often improves the quality of the next 12 months.",
+        "cta": "Plan the liquidity cadence"
+      },
+      "governance": {
+        "category": "Governance",
+        "title": "Board-ready reporting with less friction and more signal",
+        "body": "Elevate internal reporting into concise, decision-oriented communication that keeps leadership and stakeholders aligned.",
+        "points": [
+          "Reporting framed around decisions",
+          "Risk communication made more concise",
+          "Executive narratives prepared for scrutiny"
+        ],
+        "statLabel": "Decision quality",
+        "statValue": "Higher",
+        "detail": "When reporting is shaped around decisions, meetings move faster and alignment improves materially.",
+        "cta": "Upgrade the reporting layer"
+      },
+      "expansion": {
+        "category": "Growth readiness",
+        "title": "Scenario planning for expansion without guesswork",
+        "body": "Model upside, downside, and thresholds before expansion decisions harden so management can commit with clearer conviction.",
+        "points": [
+          "Expansion cases compared side by side",
+          "Trigger points defined in advance",
+          "Leadership teams aligned on downside protection"
+        ],
+        "statLabel": "Scenario range",
+        "statValue": "3x",
+        "detail": "Good expansion planning does not remove uncertainty, but it keeps uncertainty visible and usable.",
+        "cta": "Review the expansion case"
+      }
+    }
+  },
+  "cta": {
+    "eyebrow": "Next step",
+    "title": "Bring your next financing or planning decision into sharper focus",
+    "body": "Use the site as a premium front door for consultation-led conversations. The CTA keeps conversion simple, direct, and executive-friendly.",
+    "primary": "Request a consultation",
+    "secondary": "Call our team"
+  },
+  "footer": {
+    "description": "A premium corporate landing page for ZAYTUN MOLIYA with full localization, restrained motion, and an original fintech visual direction.",
+    "navigationLabel": "Navigation",
+    "contactLabel": "Contact",
+    "phoneLabel": "Phone",
+    "locationLabel": "Location",
+    "legal": "All interface copy is localized across Uzbek, Russian, and English. Business endpoints remain configurable."
+  }
+}
