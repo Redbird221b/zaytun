@@ -33,6 +33,11 @@ const slideMedia = [
 ]
 const highlightsOverlayClassName =
   'bg-[linear-gradient(180deg,rgba(18,27,23,0.12)_0%,rgba(18,27,23,0.34)_38%,rgba(18,27,23,0.84)_100%)]'
+const activeThumbOverlayClassName =
+  'bg-[linear-gradient(180deg,rgba(18,27,23,0.18)_0%,rgba(18,27,23,0.72)_100%)]'
+const idleThumbOverlayClassName =
+  'bg-[linear-gradient(180deg,rgba(18,27,23,0.28)_0%,rgba(18,27,23,0.86)_100%)]'
+const lazyLoadingValue = 'lazy'
 
 export function HighlightsCarousel() {
   const section = useMessages<HighlightSection>('highlights')
@@ -116,7 +121,7 @@ export function HighlightsCarousel() {
           <div
             aria-label={t('accessibility.carousel.region')}
             aria-roledescription={t('accessibility.carousel.role')}
-            className="mt-8 grid gap-6 xl:grid-cols-[minmax(0,1.12fr)_minmax(360px,0.88fr)]"
+            className="mt-8 overflow-hidden rounded-[40px] bg-[#17241d] shadow-[0_32px_100px_rgba(23,35,28,0.18)]"
             onBlurCapture={(event) => {
               if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
                 setIsPaused(false)
@@ -136,122 +141,136 @@ export function HighlightsCarousel() {
             }}
             tabIndex={0}
           >
-            <div className="relative min-h-[460px] overflow-hidden rounded-[40px] shadow-[0_28px_90px_rgba(23,35,28,0.14)] xl:min-h-[560px]">
-              <ParallaxMedia
-                overlayClassName={highlightsOverlayClassName}
-                speed={38}
-                src={currentMedia}
-              />
+            <div className="grid xl:grid-cols-[minmax(0,1.08fr)_minmax(420px,0.92fr)]">
+              <div className="relative min-h-[460px] overflow-hidden xl:min-h-[620px]">
+                <ParallaxMedia overlayClassName={highlightsOverlayClassName} speed={38} src={currentMedia} />
 
-              <AnimatePresence custom={direction} initial={false} mode="wait">
-                <motion.div
-                  key={currentSlide.title}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  className="relative flex h-full min-h-[460px] items-end p-6 text-white sm:p-8 xl:min-h-[560px]"
-                  custom={direction}
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  exit={{ opacity: 0, x: direction > 0 ? -48 : 48, scale: 0.98 }}
-                  initial={{ opacity: 0, x: direction > 0 ? 48 : -48, scale: 0.98 }}
-                  onDragEnd={(_, info) => {
-                    if (info.offset.x < -80) {
-                      goToNext()
-                    }
-
-                    if (info.offset.x > 80) {
-                      goToPrevious()
-                    }
-                  }}
-                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <div className="max-w-[34rem] rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(18,27,23,0.56))] p-5 backdrop-blur-lg">
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">{currentSlide.category}</p>
-                    <h3 className="mt-4 max-w-[12ch] text-balance text-[clamp(2.4rem,3.8vw,4.3rem)] font-semibold leading-[0.98] tracking-[-0.06em] text-white">
-                      {currentSlide.title}
-                    </h3>
-                    <p className="mt-4 text-base leading-7 text-white/82 xl:text-[1.05rem]">
-                      {currentSlide.body}
-                    </p>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-2">
-                <div className="h-1.5 flex-1 rounded-full bg-bone">
+                <AnimatePresence custom={direction} initial={false} mode="wait">
                   <motion.div
-                    animate={{ width: `${(progress || (prefersReducedMotion ? 1 : 0)) * 100}%` }}
-                    className="h-full rounded-full bg-gradient-to-r from-[#d7dfc7] via-olive to-sage"
-                    transition={{ duration: 0.12, ease: 'linear' }}
-                  />
-                </div>
-                <button
-                  aria-label={t('accessibility.carousel.previous')}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-sage/10 bg-white text-sage shadow-soft transition hover:bg-bone"
-                  onClick={goToPrevious}
-                  type="button"
-                >
-                  <ArrowIcon className="h-4 w-4 rotate-180" />
-                </button>
-                <button
-                  aria-label={t('accessibility.carousel.next')}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-sage/10 bg-sage text-white shadow-soft transition hover:bg-[#405148]"
-                  onClick={goToNext}
-                  type="button"
-                >
-                  <ArrowIcon className="h-4 w-4" />
-                </button>
+                    key={currentSlide.title}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    className="relative flex h-full min-h-[460px] items-end p-5 text-white sm:p-8 xl:min-h-[620px] xl:p-10"
+                    custom={direction}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    exit={{ opacity: 0, x: direction > 0 ? -48 : 48, scale: 0.98 }}
+                    initial={{ opacity: 0, x: direction > 0 ? 48 : -48, scale: 0.98 }}
+                    onDragEnd={(_, info) => {
+                      if (info.offset.x < -80) {
+                        goToNext()
+                      }
+
+                      if (info.offset.x > 80) {
+                        goToPrevious()
+                      }
+                    }}
+                    transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <div className="max-w-[36rem] rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(18,27,23,0.58))] p-5 backdrop-blur-lg sm:p-6">
+                      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">{currentSlide.category}</p>
+                      <h3 className="mt-4 max-w-[11ch] text-balance text-[clamp(2.5rem,4.2vw,4.6rem)] font-semibold leading-[0.96] tracking-[-0.06em] text-white">
+                        {currentSlide.title}
+                      </h3>
+                      <p className="mt-4 max-w-[34rem] text-base leading-7 text-white/82 xl:text-[1.04rem]">{currentSlide.body}</p>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
-              <div className="bg-white/72 p-6 shadow-[0_18px_44px_rgba(23,35,28,0.06)] backdrop-blur">
-                <div className="flex items-end gap-3 text-sage">
-                  <span className="font-display text-5xl italic tracking-[-0.05em] text-sage/25">
+              <div className="flex flex-col gap-6 px-5 py-6 text-white sm:px-6 sm:py-7 xl:px-8 xl:py-8">
+                <div className="flex items-center gap-2">
+                  <div className="h-1.5 flex-1 rounded-full bg-white/12">
+                    <motion.div
+                      animate={{ width: `${(progress || (prefersReducedMotion ? 1 : 0)) * 100}%` }}
+                      className="h-full rounded-full bg-gradient-to-r from-[#d7dfc7] via-olive to-white"
+                      transition={{ duration: 0.12, ease: 'linear' }}
+                    />
+                  </div>
+                  <button
+                    aria-label={t('accessibility.carousel.previous')}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white transition hover:bg-white/20"
+                    onClick={goToPrevious}
+                    type="button"
+                  >
+                    <ArrowIcon className="h-4 w-4 rotate-180" />
+                  </button>
+                  <button
+                    aria-label={t('accessibility.carousel.next')}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white text-sage transition hover:bg-bone"
+                    onClick={goToNext}
+                    type="button"
+                  >
+                    <ArrowIcon className="h-4 w-4" />
+                  </button>
+                </div>
+
+                <div className="flex items-end justify-between gap-4 border-b border-white/10 pb-5">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/52">{t('highlights.label')}</p>
+                    <p className="mt-3 text-sm text-white/68">
+                      {t('accessibility.carousel.slideStatus', {
+                        current: activeIndex + 1,
+                        total: slides.length,
+                      })}
+                    </p>
+                  </div>
+                  <span className="font-display text-5xl italic tracking-[-0.05em] text-white/22">
                     {String(activeIndex + 1).padStart(2, '0')}
-                  </span>
-                  <span className="pb-2 text-sm text-sage/55">
-                    {t('accessibility.carousel.slideStatus', {
-                      current: activeIndex + 1,
-                      total: slides.length,
-                    })}
                   </span>
                 </div>
 
-                <div className="mt-5 space-y-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sage/45">{t('highlights.label')}</p>
+                <AnimatePresence initial={false} mode="wait">
+                  <motion.div
+                    key={`${currentSlide.title}-details`}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 16 }}
+                    initial={{ opacity: 0, y: 16 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/52">{currentSlide.statLabel}</p>
+                    <p className="mt-3 text-[2.7rem] font-semibold tracking-[-0.06em] text-white">{currentSlide.statValue}</p>
+                    <p className="mt-4 max-w-[28rem] text-sm leading-6 text-white/74">{currentSlide.detail}</p>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {currentSlide.points.map((point) => (
+                        <span key={point} className="inline-flex rounded-full border border-white/10 bg-white/8 px-3 py-2 text-sm text-white/84">
+                          {point}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white">
+                      <span>{currentSlide.cta}</span>
+                      <ArrowIcon className="h-4 w-4" />
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+
+                <div className="grid gap-3 sm:grid-cols-2">
                   {slides.map((slide, index) => (
                     <button
                       key={slide.title}
                       aria-label={t('accessibility.carousel.goToSlide', { index: index + 1 })}
-                      className={`w-full border px-4 py-4 text-left transition ${
-                        index === activeIndex
-                          ? 'border-sage/15 bg-sage text-white shadow-[0_18px_40px_rgba(26,38,31,0.12)]'
-                          : 'border-sage/10 bg-white text-sage/80 hover:bg-bone/70'
+                      className={`group relative overflow-hidden rounded-[24px] border text-left transition ${
+                        index === activeIndex ? 'border-white/18 shadow-[0_20px_48px_rgba(12,20,16,0.2)]' : 'border-white/8'
                       }`}
                       onClick={() => goToSlide(index)}
                       type="button"
                     >
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] opacity-60">{slide.category}</p>
-                      <p className="mt-2 text-sm font-semibold tracking-[-0.02em]">{slide.title}</p>
+                      <div className="absolute inset-0">
+                        <img
+                          alt=""
+                          aria-hidden={true}
+                          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                          loading={lazyLoadingValue}
+                          src={slideMedia[index] ?? slideMedia[0]}
+                        />
+                        <div className={`absolute inset-0 ${index === activeIndex ? activeThumbOverlayClassName : idleThumbOverlayClassName}`} />
+                      </div>
+                      <div className="relative min-h-[140px] p-4">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/56">{slide.category}</p>
+                        <p className="mt-3 max-w-[14ch] text-sm font-semibold leading-5 tracking-[-0.02em] text-white">{slide.title}</p>
+                      </div>
                     </button>
                   ))}
-                </div>
-              </div>
-
-              <div className="bg-sage p-6 text-white shadow-[0_22px_60px_rgba(23,35,28,0.18)]">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/55">{currentSlide.statLabel}</p>
-                <p className="mt-3 text-[2.65rem] font-semibold tracking-[-0.06em] text-white">{currentSlide.statValue}</p>
-                <p className="mt-4 text-sm leading-6 text-white/76">{currentSlide.detail}</p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {currentSlide.points.map((point) => (
-                    <span key={point} className="inline-flex border border-white/10 bg-white/10 px-3 py-2 text-sm text-white/86">
-                      {point}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-5 inline-flex items-center gap-2 border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold">
-                  <span>{currentSlide.cta}</span>
-                  <ArrowIcon className="h-4 w-4" />
                 </div>
               </div>
             </div>

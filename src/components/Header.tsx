@@ -17,9 +17,9 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
       <Container className="space-y-2">
-        <div className="hidden items-center justify-between rounded-[22px] border border-white/10 bg-sage px-5 py-2 text-white shadow-[0_18px_40px_rgba(23,35,28,0.18)] lg:flex">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-white/70">{t('header.tagline')}</p>
-          <div className="flex items-center gap-4 text-[11px] text-white/75">
+        <div className="hidden items-center justify-between rounded-[22px] border border-white/10 bg-sage px-6 py-2.5 text-white shadow-[0_18px_40px_rgba(23,35,28,0.18)] xl:flex">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/72">{t('header.tagline')}</p>
+          <div className="flex items-center gap-4 text-[12px] text-white/78">
             <a className="transition hover:text-white" href={siteConfig.phoneHref}>
               {siteConfig.phoneDisplay}
             </a>
@@ -30,24 +30,24 @@ export function Header() {
           </div>
         </div>
 
-        <div className="flex min-h-[86px] items-center justify-between gap-4 rounded-[30px] border border-white/70 bg-white/95 px-4 shadow-[0_26px_80px_rgba(25,37,31,0.12)] backdrop-blur-xl sm:px-5 lg:px-6">
+        <div className="flex min-h-[88px] items-center justify-between gap-5 rounded-[30px] border border-white/70 bg-white/95 px-4 shadow-[0_26px_80px_rgba(25,37,31,0.12)] backdrop-blur-xl sm:px-5 lg:px-6 xl:min-h-[94px]">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-sage/10 bg-bone text-sm font-semibold tracking-[0.24em] text-sage shadow-soft">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-sage/10 bg-bone text-sm font-semibold tracking-[0.24em] text-sage shadow-soft xl:h-12 xl:w-12">
               {t('common.brandShort')}
             </div>
             <div>
-              <a className="block whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.28em] text-ink" href="#hero">
+              <a className="block whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.28em] text-ink xl:text-[12px]" href="#hero">
                 {t('common.brand')}
               </a>
-              <p className="max-w-[11rem] text-[11px] leading-4 text-sage/60">{t('header.tagline')}</p>
+              <p className="max-w-[12rem] text-[11px] leading-4 text-sage/60 xl:text-[12px]">{t('header.tagline')}</p>
             </div>
           </div>
 
-          <nav className="hidden items-center gap-6 xl:flex">
+          <nav className="hidden items-center gap-6 xl:flex 2xl:gap-7">
             {Object.entries(nav).map(([key, label]) => (
               <a
                 key={key}
-                className="whitespace-nowrap text-sm font-medium text-sage/70 transition hover:text-ink"
+                className="whitespace-nowrap text-[14px] font-medium text-sage/72 transition hover:text-ink"
                 href={`#${key}`}
               >
                 {label}
@@ -57,13 +57,13 @@ export function Header() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <a
-              className="whitespace-nowrap rounded-full border border-sage/10 bg-bone px-4 py-3 text-[13px] font-medium text-sage shadow-soft transition hover:text-ink"
+              className="whitespace-nowrap rounded-full border border-sage/10 bg-bone px-4 py-3 text-[13px] font-medium text-sage shadow-soft transition hover:text-ink xl:px-5"
               href={siteConfig.phoneHref}
             >
               {siteConfig.phoneDisplay}
             </a>
             <LocaleSwitcher />
-            <Button className="whitespace-nowrap px-6 text-[13px]" href={siteConfig.primaryCtaHref} icon={<ArrowIcon className="h-4 w-4" />} variant="primary">
+            <Button className="whitespace-nowrap px-6 text-[13px] xl:px-7" href={siteConfig.primaryCtaHref} icon={<ArrowIcon className="h-4 w-4" />} variant="primary">
               {t('header.cta')}
             </Button>
           </div>

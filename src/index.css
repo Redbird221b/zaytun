@@ -75,7 +75,7 @@ select {
   }
 
   .section-shell {
-    @apply relative py-12 sm:py-16;
+    @apply relative py-10 sm:py-14 xl:py-16;
   }
 
   .eyebrow {
@@ -99,6 +99,13 @@ select {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(249, 246, 240, 0.92));
     border: 1px solid rgba(74, 95, 84, 0.1);
     box-shadow: 0 28px 80px rgba(26, 38, 31, 0.12);
+  }
+
+  .section-band {
+    border: 1px solid rgba(74, 95, 84, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.74));
+    box-shadow: 0 24px 70px rgba(26, 38, 31, 0.08);
+    backdrop-filter: blur(22px);
   }
 }
 

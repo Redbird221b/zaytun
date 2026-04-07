@@ -19,9 +19,7 @@ type HeroPanel = {
 }
 
 const heroDesktopOverlayClassName =
-  'bg-[linear-gradient(180deg,rgba(17,26,21,0.14)_0%,rgba(17,26,21,0.46)_42%,rgba(17,26,21,0.8)_100%)]'
-const heroMobileOverlayClassName =
-  'bg-[linear-gradient(180deg,rgba(18,27,23,0.16)_0%,rgba(18,27,23,0.34)_40%,rgba(18,27,23,0.82)_100%)]'
+  'bg-[linear-gradient(90deg,rgba(18,28,23,0.98)_0%,rgba(18,28,23,0.94)_38%,rgba(18,28,23,0.58)_62%,rgba(18,28,23,0.36)_100%)]'
 
 export function Hero() {
   const t = useT()
@@ -32,41 +30,38 @@ export function Hero() {
   return (
     <section className="section-shell overflow-hidden pb-8 pt-2 sm:pb-10 sm:pt-4" id="hero">
       <Container>
-        <div className="relative overflow-hidden rounded-[44px] bg-[#203128] shadow-[0_40px_120px_rgba(23,35,28,0.22)]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(168,182,138,0.16),transparent_24%),linear-gradient(90deg,rgba(22,35,29,0.94)_0%,rgba(35,53,44,0.9)_44%,rgba(35,53,44,0.12)_72%,rgba(35,53,44,0)_100%)]" />
-          <div className="absolute inset-y-0 right-0 hidden w-[48%] xl:block">
-            <ParallaxMedia
-              overlayClassName={heroDesktopOverlayClassName}
-              priority
-              speed={42}
-              src="/media/hero-team.jpg"
-            />
-          </div>
+        <div className="relative overflow-hidden rounded-[42px] shadow-[0_40px_120px_rgba(23,35,28,0.18)]">
+          <ParallaxMedia overlayClassName={heroDesktopOverlayClassName} priority speed={40} src="/media/hero-team.jpg" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(168,182,138,0.18),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0)_40%)]" />
 
-          <div className="relative z-10 grid min-h-[660px] items-stretch gap-8 px-5 py-6 sm:px-8 sm:py-8 xl:grid-cols-[minmax(0,1.08fr)_minmax(460px,0.92fr)] xl:px-10 xl:py-10 2xl:grid-cols-[minmax(0,1.16fr)_minmax(560px,0.84fr)]">
+          <div className="relative z-10 grid min-h-[600px] gap-8 px-5 py-6 sm:px-7 sm:py-7 xl:grid-cols-[minmax(0,1.16fr)_400px] xl:px-8 xl:py-8 2xl:grid-cols-[minmax(0,1.2fr)_440px] 2xl:px-10 2xl:py-10">
             <div className="flex flex-col justify-between">
-              <div className="space-y-8">
+              <div className="max-w-[46rem] space-y-7">
                 <Reveal mode="immediate">
                   <span className="eyebrow-inverse">{t('hero.eyebrow')}</span>
                 </Reveal>
 
                 <Reveal delay={0.05} mode="immediate">
-                  <div className="max-w-[56rem] space-y-5">
-                    <h1 className="max-w-[12ch] text-balance text-[clamp(3.35rem,5.8vw,6.4rem)] font-semibold leading-[0.9] tracking-[-0.075em] text-white">
+                  <div className="space-y-5">
+                    <h1 className="max-w-[10.5ch] text-balance text-[clamp(2.95rem,5vw,5.4rem)] font-semibold leading-[0.92] tracking-[-0.07em] text-white">
                       {t('hero.titleLine1')}
-                      <span className="mt-2 block font-display text-[0.96em] font-semibold italic tracking-[-0.04em] text-[#d7dfc7]">
+                      <span className="mt-2 block font-display text-[0.92em] font-semibold italic tracking-[-0.04em] text-[#d7dfc7]">
                         {t('hero.titleLine2')}
                       </span>
                     </h1>
-                    <p className="text-pretty max-w-[39rem] text-base leading-7 text-white/88 xl:text-[1.06rem]">
+                    <p className="text-pretty max-w-[35rem] text-[1.02rem] leading-7 text-white/90 xl:text-[1.08rem] xl:text-white/88">
                       {t('hero.subtitle')}
                     </p>
                   </div>
                 </Reveal>
 
                 <Reveal delay={0.1} mode="immediate">
-                  <div className="flex flex-col items-start gap-4 sm:flex-row">
-                    <Button className="!bg-white !text-sage hover:!bg-bone" href={siteConfig.primaryCtaHref} icon={<ArrowIcon className="h-4 w-4" />}>
+                  <div className="flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
+                    <Button
+                      className="!bg-white !text-sage hover:!bg-bone"
+                      href={siteConfig.primaryCtaHref}
+                      icon={<ArrowIcon className="h-4 w-4" />}
+                    >
                       {t('hero.primaryCta')}
                     </Button>
                     <Button className="border-white/10 bg-white/10 text-white hover:bg-white/20" href="#services" variant="ghost">
@@ -74,75 +69,59 @@ export function Hero() {
                     </Button>
                   </div>
                 </Reveal>
-
-                <Reveal className="xl:hidden" delay={0.14} mode="immediate">
-                  <div className="relative min-h-[280px] overflow-hidden rounded-[30px]">
-                    <ParallaxMedia
-                      overlayClassName={heroMobileOverlayClassName}
-                      priority
-                      speed={28}
-                      src="/media/hero-team.jpg"
-                    />
-                    <div className="relative flex h-full min-h-[280px] items-end p-4">
-                      <div className="max-w-[20rem] rounded-[24px] border border-white/10 bg-white/10 p-4 text-white backdrop-blur-lg">
-                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">{panel.badge}</p>
-                        <p className="mt-3 text-xl font-semibold leading-[1.08] tracking-[-0.04em] text-white">{panel.title}</p>
-                      </div>
-                    </div>
-                  </div>
-                </Reveal>
               </div>
 
-              <Reveal delay={0.16} mode="immediate">
-                <div className="mt-8 grid gap-3 lg:grid-cols-3">
-                  {metrics.map((metric) => (
-                    <div
-                      key={metric.label}
-                      className="rounded-[24px] border border-white/10 bg-white/10 px-4 py-4 text-white/90 backdrop-blur"
-                    >
-                      <p className="text-[2rem] font-semibold tracking-[-0.05em] text-white">{metric.value}</p>
-                      <p className="mt-2 text-[13px] leading-5 text-white/72">{metric.label}</p>
-                    </div>
-                  ))}
+              <Reveal delay={0.14} mode="immediate">
+                <div className="mt-8 overflow-hidden rounded-[28px] border border-white/10 bg-black/25 backdrop-blur-xl">
+                  <div className="grid gap-0 md:grid-cols-3">
+                    {metrics.map((metric, index) => (
+                      <div
+                        key={metric.label}
+                        className={`border-white/10 px-5 py-4 text-white/88 ${index < metrics.length - 1 ? 'border-b md:border-b-0 md:border-r' : ''}`}
+                      >
+                        <p className="text-[1.85rem] font-semibold tracking-[-0.05em] text-white">{metric.value}</p>
+                        <p className="mt-2 max-w-[16rem] text-[13px] leading-5 text-white/76">{metric.label}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </Reveal>
             </div>
 
-            <Reveal className="relative hidden xl:block" delay={0.18} mode="immediate">
+            <Reveal className="relative" delay={0.18} mode="immediate">
               <motion.div
-                animate={prefersReducedMotion ? undefined : { y: [-5, 7, -5] }}
-                className="ml-auto flex h-full w-full max-w-[520px] items-end justify-end"
-                transition={{ duration: 11, ease: 'easeInOut', repeat: Number.POSITIVE_INFINITY }}
+                animate={prefersReducedMotion ? undefined : { y: [-4, 6, -4] }}
+                className="flex h-full w-full items-end xl:justify-end"
+                transition={{ duration: 10, ease: 'easeInOut', repeat: Number.POSITIVE_INFINITY }}
               >
-                <div className="mb-2 mr-2 w-full max-w-[430px] rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.2),rgba(17,28,22,0.54))] p-5 text-white shadow-[0_32px_90px_rgba(12,20,16,0.32)] backdrop-blur-xl">
+                <div className="w-full rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(18,28,23,0.64))] p-5 text-white shadow-[0_32px_90px_rgba(12,20,16,0.28)] backdrop-blur-xl">
                   <div className="flex items-start justify-between gap-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/65">{panel.badge}</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">{panel.badge}</p>
                     <span className="rounded-full border border-white/15 bg-white/10 px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-white">
                       {t('hero.panelStatus')}
                     </span>
                   </div>
 
-                  <h2 className="mt-4 max-w-[12ch] text-balance text-[2.05rem] font-semibold leading-[1.02] tracking-[-0.05em] text-white">
+                  <h2 className="mt-4 max-w-[12ch] text-balance text-[2rem] font-semibold leading-[1.02] tracking-[-0.05em] text-white">
                     {panel.title}
                   </h2>
 
-                  <div className="mt-6 grid gap-2.5">
+                  <div className="mt-6 space-y-3">
                     {panel.items.map((item, index) => (
-                      <div
-                        key={item.title}
-                        className="flex items-center gap-3 rounded-[20px] border border-white/10 bg-white/10 px-3 py-3"
-                      >
+                      <div key={item.title} className="flex items-start gap-3 border-t border-white/10 py-3 first:border-t-0 first:pt-0 last:pb-0">
                         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-white text-xs font-semibold text-sage">
                           {String(index + 1).padStart(2, '0')}
                         </div>
-                        <p className="text-sm font-medium leading-5 text-white/92">{item.title}</p>
+                        <div>
+                          <p className="text-sm font-semibold leading-5 text-white">{item.title}</p>
+                        </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-6 rounded-[22px] border border-white/10 bg-black/20 p-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/60">{t('hero.quoteLabel')}</p>
-                    <p className="mt-3 text-sm leading-6 text-white/90">{t('hero.quote')}</p>
+                  <div className="mt-6 border-t border-white/10 pt-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-white/56">{t('hero.quoteLabel')}</p>
+                    <p className="mt-3 text-sm leading-6 text-white/86">{t('hero.quote')}</p>
                   </div>
                 </div>
               </motion.div>

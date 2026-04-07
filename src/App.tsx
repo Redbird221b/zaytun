@@ -19,9 +19,9 @@ function App() {
       >
         {t('accessibility.skipToContent')}
       </a>
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[760px] bg-[radial-gradient(circle_at_top_left,rgba(168,182,138,0.14),transparent_24%),linear-gradient(180deg,#f6f2ec_0%,rgba(255,255,255,0)_100%)]" />
-      <div className="pointer-events-none absolute left-[-120px] top-[220px] h-[360px] w-[360px] rounded-full bg-olive/10 blur-[120px]" />
-      <div className="pointer-events-none absolute right-[-120px] top-[540px] h-[320px] w-[320px] rounded-full bg-sage/10 blur-[120px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[720px] bg-[radial-gradient(circle_at_top_left,rgba(168,182,138,0.12),transparent_24%),linear-gradient(180deg,#f6f2ec_0%,rgba(255,255,255,0)_100%)]" />
+      <div className="pointer-events-none absolute left-[-140px] top-[220px] h-[340px] w-[340px] rounded-full bg-olive/8 blur-[130px]" />
+      <div className="pointer-events-none absolute right-[-120px] top-[520px] h-[280px] w-[280px] rounded-full bg-sage/8 blur-[120px]" />
       <Header />
       <main className="relative z-10" id="main-content">
         <Hero />
