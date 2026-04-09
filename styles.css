@@ -82,16 +82,19 @@ img {
 
 .site-header {
   position: sticky;
-  top: 0;
+  top: 1rem;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1.1rem 0;
-  backdrop-filter: blur(18px);
-  background: linear-gradient(180deg, rgba(248, 243, 233, 0.92), rgba(248, 243, 233, 0.68));
-  border-bottom: 1px solid rgba(102, 84, 54, 0.1);
+  gap: 1.1rem;
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(160, 134, 87, 0.14);
+  border-radius: 1.8rem;
+  backdrop-filter: blur(22px) saturate(120%);
+  background: linear-gradient(180deg, rgba(251, 247, 239, 0.84), rgba(247, 240, 228, 0.68));
+  box-shadow: 0 16px 34px rgba(146, 115, 72, 0.08);
 }
 
 .brand,
@@ -156,11 +159,29 @@ img {
 }
 
 .site-nav {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 1.4rem;
+  justify-content: center;
+  gap: 0.2rem;
+  margin: 0 auto;
+  padding: 0.35rem;
+  border: 1px solid rgba(160, 134, 87, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 251, 244, 0.56);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52);
   font-size: 0.95rem;
   color: var(--muted);
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.7rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .site-nav a,
@@ -172,6 +193,7 @@ img {
 .site-nav a:hover,
 .site-nav a:focus-visible {
   color: var(--text);
+  background: rgba(143, 154, 93, 0.12);
 }
 
 .header-cta,
@@ -187,9 +209,12 @@ img {
 }
 
 .header-cta {
-  border: 1px solid var(--line);
-  background: rgba(255, 250, 242, 0.72);
+  min-height: 3rem;
+  padding: 0 1.2rem;
+  border: 1px solid rgba(160, 134, 87, 0.16);
+  background: rgba(255, 251, 244, 0.78);
   color: var(--text);
+  box-shadow: 0 10px 24px rgba(146, 115, 72, 0.08);
 }
 
 .header-cta:hover,
@@ -735,6 +760,7 @@ img {
 @media (max-width: 1024px) {
   .site-header {
     flex-wrap: wrap;
+    padding: 0.8rem;
   }
 
   .site-nav {
@@ -742,7 +768,8 @@ img {
     width: 100%;
     justify-content: flex-start;
     overflow-x: auto;
-    padding-bottom: 0.25rem;
+    margin: 0;
+    padding: 0.35rem;
   }
 
   .hero,
@@ -837,8 +864,11 @@ img {
   }
 
   .site-header {
-    gap: 0.8rem;
-    padding: 0.9rem 0;
+    top: 0.7rem;
+    gap: 0.75rem;
+    margin-top: 0.7rem;
+    padding: 0.72rem;
+    border-radius: 1.35rem;
   }
 
   .brand-lockup strong {
@@ -851,12 +881,19 @@ img {
   }
 
   .site-nav {
-    gap: 0.9rem;
+    gap: 0.15rem;
     font-size: 0.88rem;
   }
 
+  .site-nav a {
+    min-height: 2.45rem;
+    padding: 0 0.92rem;
+  }
+
   .header-cta {
-    width: 100%;
+    width: auto;
+    min-height: 2.85rem;
+    margin-left: auto;
   }
 
   .hero {
