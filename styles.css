@@ -1,8 +1,8 @@
 :root {
-  --bg: #f6f0e2;
-  --bg-deep: #eadbc1;
-  --surface: rgba(255, 250, 242, 0.72);
-  --surface-strong: rgba(255, 247, 235, 0.9);
+  --bg: #ffffff;
+  --bg-deep: #ffffff;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.94);
   --line: rgba(102, 84, 54, 0.16);
   --text: #314036;
   --muted: rgba(49, 64, 54, 0.72);
@@ -26,10 +26,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background:
-    radial-gradient(circle at top left, rgba(143, 154, 93, 0.16), transparent 26%),
-    radial-gradient(circle at 88% 10%, rgba(211, 181, 122, 0.18), transparent 18%),
-    linear-gradient(180deg, #fbf7ef 0%, var(--bg) 58%, var(--bg-deep) 100%);
+  background: #ffffff;
   color: var(--text);
   font-family: "Manrope", sans-serif;
   line-height: 1.6;
@@ -40,9 +37,9 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: url("assets/pattern-mashrabiya.svg") center top / 180px repeat;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.48), transparent 92%);
-  opacity: 0.24;
+  background: url("assets/pattern-mashrabiya.svg") center top / 220px repeat;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent 78%);
+  opacity: 0.08;
 }
 
 body::after {
@@ -55,7 +52,7 @@ body::after {
   pointer-events: none;
   background: radial-gradient(circle, rgba(143, 154, 93, 0.2), transparent 68%);
   filter: blur(26px);
-  opacity: 0.7;
+  opacity: 0.14;
 }
 
 main {
@@ -93,8 +90,8 @@ img {
   border: 1px solid rgba(160, 134, 87, 0.14);
   border-radius: 1.8rem;
   backdrop-filter: blur(22px) saturate(120%);
-  background: linear-gradient(180deg, rgba(251, 247, 239, 0.84), rgba(247, 240, 228, 0.68));
-  box-shadow: 0 16px 34px rgba(146, 115, 72, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.74));
+  box-shadow: 0 14px 28px rgba(146, 115, 72, 0.05);
 }
 
 .brand,
@@ -167,7 +164,7 @@ img {
   padding: 0.35rem;
   border: 1px solid rgba(160, 134, 87, 0.12);
   border-radius: 999px;
-  background: rgba(255, 251, 244, 0.56);
+  background: rgba(255, 255, 255, 0.72);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.52);
   font-size: 0.95rem;
   color: var(--muted);
@@ -212,9 +209,9 @@ img {
   min-height: 3rem;
   padding: 0 1.2rem;
   border: 1px solid rgba(160, 134, 87, 0.16);
-  background: rgba(255, 251, 244, 0.78);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--text);
-  box-shadow: 0 10px 24px rgba(146, 115, 72, 0.08);
+  box-shadow: 0 10px 20px rgba(146, 115, 72, 0.05);
 }
 
 .header-cta:hover,
@@ -250,7 +247,7 @@ img {
   width: 22rem;
   height: 22rem;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(211, 181, 122, 0.16), transparent 68%);
+  background: radial-gradient(circle, rgba(211, 181, 122, 0.08), transparent 68%);
   filter: blur(18px);
   pointer-events: none;
 }
@@ -285,7 +282,7 @@ img {
   position: absolute;
   inset: -4rem -3rem -5rem -5rem;
   z-index: -1;
-  background: radial-gradient(circle at 30% 30%, rgba(211, 181, 122, 0.18), transparent 46%);
+  background: radial-gradient(circle at 30% 30%, rgba(211, 181, 122, 0.08), transparent 46%);
   filter: blur(18px);
 }
 
@@ -375,7 +372,7 @@ img {
   min-height: 7.4rem;
   padding: 1.35rem 1.5rem 0;
   text-align: center;
-  background: linear-gradient(180deg, rgba(255, 248, 235, 0.3), transparent 88%);
+  background: linear-gradient(180deg, rgba(247, 241, 229, 0.12), transparent 88%);
 }
 
 .hero-highlight + .hero-highlight {
@@ -412,7 +409,7 @@ img {
   padding: 1.35rem;
   border-radius: 2.15rem;
   background:
-    linear-gradient(180deg, rgba(250, 243, 229, 0.9), rgba(236, 224, 199, 0.82)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 237, 224, 0.82)),
     url("assets/hero-window.svg") center / cover no-repeat;
   border: 1px solid rgba(160, 134, 87, 0.18);
   box-shadow: var(--shadow);
@@ -424,9 +421,9 @@ img {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 34%),
     url("assets/pattern-mashrabiya.svg") center / 180px repeat;
-  opacity: 0.18;
+  opacity: 0.08;
   pointer-events: none;
 }
 
@@ -524,7 +521,7 @@ img {
   border: 1px solid rgba(160, 134, 87, 0.16);
   border-radius: 2rem;
   background:
-    linear-gradient(180deg, rgba(255, 250, 242, 0.92), rgba(245, 236, 219, 0.82)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(249, 245, 237, 0.86)),
     url("assets/pattern-mashrabiya.svg") center / 200px repeat;
   box-shadow: var(--shadow);
   overflow: hidden;
