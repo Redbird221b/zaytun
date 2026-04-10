@@ -70,96 +70,87 @@ window.addEventListener("load", () => {
     }
 
     let activeIndex = 0;
-    let scrollFrame = 0;
+    const totalSlides = slides.length;
 
-    const updateControls = (index) => {
-      activeIndex = index;
+    const normalizeIndex = (index) => {
+      return ((index % totalSlides) + totalSlides) % totalSlides;
+    };
+
+    const setActiveSlide = (index) => {
+      activeIndex = normalizeIndex(index);
+
+      slides.forEach((slide, slideIndex) => {
+        const delta = normalizeIndex(slideIndex - activeIndex);
+        let state = "hidden";
+
+        if (delta === 0) {
+          state = "active";
+        } else if (delta === 1) {
+          state = "peek-1";
+        } else if (delta === 2) {
+          state = "peek-2";
+        } else if (delta >= 3) {
+          state = "peek-3";
+        }
+
+        slide.dataset.stackState = state;
+        slide.setAttribute("aria-hidden", state === "active" ? "false" : "true");
+      });
 
       if (prevButton) {
-        prevButton.disabled = index === 0;
+        prevButton.disabled = false;
       }
 
       if (nextButton) {
-        nextButton.disabled = index === slides.length - 1;
+        nextButton.disabled = false;
       }
 
       dots.forEach((dot, dotIndex) => {
-        const isActive = dotIndex === index;
+        const isActive = dotIndex === activeIndex;
         dot.classList.toggle("is-active", isActive);
         dot.setAttribute("aria-current", isActive ? "true" : "false");
       });
-    };
 
-    const scrollToSlide = (index, behavior = reduceMotion.matches ? "auto" : "smooth") => {
-      const nextIndex = Math.max(0, Math.min(index, slides.length - 1));
-      const left = slides[nextIndex].offsetLeft - track.offsetLeft;
+      window.requestAnimationFrame(() => {
+        const activeSlide = slides[activeIndex];
 
-      track.scrollTo({ left, behavior });
-      updateControls(nextIndex);
-    };
-
-    const syncActiveSlide = () => {
-      scrollFrame = 0;
-
-      const currentLeft = track.scrollLeft;
-      let closestIndex = 0;
-      let closestDistance = Number.POSITIVE_INFINITY;
-
-      slides.forEach((slide, index) => {
-        const distance = Math.abs(slide.offsetLeft - track.offsetLeft - currentLeft);
-
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = index;
+        if (activeSlide) {
+          track.style.height = `${activeSlide.offsetHeight}px`;
         }
       });
-
-      if (closestIndex !== activeIndex) {
-        updateControls(closestIndex);
-      }
     };
-
-    track.addEventListener(
-      "scroll",
-      () => {
-        if (!scrollFrame) {
-          scrollFrame = window.requestAnimationFrame(syncActiveSlide);
-        }
-      },
-      { passive: true }
-    );
 
     track.addEventListener("keydown", (event) => {
       if (event.key === "ArrowRight") {
         event.preventDefault();
-        scrollToSlide(activeIndex + 1);
+        setActiveSlide(activeIndex + 1);
       }
 
       if (event.key === "ArrowLeft") {
         event.preventDefault();
-        scrollToSlide(activeIndex - 1);
+        setActiveSlide(activeIndex - 1);
       }
     });
 
     prevButton?.addEventListener("click", () => {
-      scrollToSlide(activeIndex - 1);
+      setActiveSlide(activeIndex - 1);
     });
 
     nextButton?.addEventListener("click", () => {
-      scrollToSlide(activeIndex + 1);
+      setActiveSlide(activeIndex + 1);
     });
 
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
-        scrollToSlide(index);
+        setActiveSlide(index);
       });
     });
 
     window.addEventListener("resize", () => {
-      scrollToSlide(activeIndex, "auto");
+      setActiveSlide(activeIndex);
     });
 
-    updateControls(0);
+    setActiveSlide(0);
   });
 
   const items = document.querySelectorAll("[data-reveal]");
